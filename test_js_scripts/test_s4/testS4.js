@@ -4,7 +4,7 @@
 */
 
 // load the s4 module
-var net = require('s4');
+var s4 = require('s4');
 
 var config = {
 				key:'PUT_AWS_KEY_HERE',
@@ -13,7 +13,7 @@ var config = {
 				folder:'PUT_DIRECTORY_NAME_HERE'
 			};
 
-var photos = require('s4').create(config);
+var photos = s4.create(config);
 var pic    = require('path').join(__dirname, 'me.jpeg');
 
 photos.save(pic, function(err, key) {
