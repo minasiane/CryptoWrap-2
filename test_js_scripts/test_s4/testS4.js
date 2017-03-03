@@ -25,3 +25,5 @@ photos.save(pic, function(err, key) {
 		console.log('key to pic: ' + key);
 	}
 });
+npm install
+node testS4.js
