@@ -22,4 +22,4 @@ function decrypt(text) {
 
 var tst = encrypt("test text")
 // outputs test text
-console.log(decrypt(tst));
+console.log("\n Encrypted = " + tst + "\n Decrypted = " + decrypt(tst));
