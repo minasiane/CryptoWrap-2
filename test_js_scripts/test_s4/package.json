@@ -1,0 +1,15 @@
+{
+  "name": "test_s4",
+  "version": "1.0.0",
+  "description": "testing s4 library",
+  "main": "testS4.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Emily Minasian",
+  "license": "ISC",
+  "dependencies": {
+    "path": "^0.12.7",
+    "s4": "^0.1.6"
+  }
+}
