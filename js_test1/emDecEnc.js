@@ -22,4 +22,8 @@
 	 
 	var ex = encrypt("test text")
 	// outputs test text
+<<<<<<< HEAD
 	console.log("\n Encrypted = " + ex + "\n Decrypted = " + decrypt(ex));
+=======
+	console.log("\n Encrypted = " + ex + "\n Decrypted = " + decrypt(ex));
+>>>>>>> a0ef4b63a27aebd1d3506b2c10db84491763f883
