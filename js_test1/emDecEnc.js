@@ -1,6 +1,5 @@
-// modified example to test native node.js encrypt
-	 
-	// node.js encrypt with CTR
+// test  encrypt  in node
+
 	 
 	var crypto = require('crypto'),
 		algorithm = 'aes-256-ctr',
