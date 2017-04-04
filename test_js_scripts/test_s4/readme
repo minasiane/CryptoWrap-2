@@ -1,0 +1,17 @@
+Instruction to run
+
+First modify "tests4.js" file with your AWS credentials
+var config = {
+				key:'PUT_AWS_KEY_HERE',
+				secret:'PUT_AWS_SECRET_KEY_HERE',
+				bucket:'PUT_BUCKET_NAME_HERE',
+				folder:'PUT_DIRECTORY_NAME_HERE'
+			};
+
+Inside test_s4 directory run:
+npm install
+
+This will install s4 module along with its dependencies
+
+To run:
+node testS4.js
