@@ -20,4 +20,5 @@ c) sudo cp /home/username/filedir/libfile.so /usr/lib
          ldconfig -p | grep file
          unset LD_LIBRARY_PATH
          gcc -Wall -o file file.c -lfile
-   4) run it: ./file
+   
+  4) run it: ./file
