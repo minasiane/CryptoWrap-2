@@ -10,10 +10,8 @@ When assembling the shared files (until the makefile is up and running) with gcc
   3) link with shared library one of the following ways:
       
 a) gcc -L/home/username/filedir -Wall -o file file.c -lfile
-       export LD_LIBRARY_PATH=/home/username/filedir:$LD_LIBRARY_PATH
-      
+       export LD_LIBRARY_PATH=/home/username/filedir:$LD_LIBRARY_PATH   
 b) gcc -L/home/username/filedir -Wl,rpath=/home/username/filedir -Wall -o file file.c -lfile
-      
 c) sudo cp /home/username/filedir/libfile.so /usr/lib
          sudo chmod 0755 /usr/lib/libfile.so
          ldconfig
