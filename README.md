@@ -1,6 +1,6 @@
 # CryptoWrap
 
-This project is to create a wrapper to utilize S4 library in JavaScript and Python
+This project is to create a wrapper to utilize S4 library in JavaScript and Python.
 
 
 When assembling the shared files (until the makefile is up and running) with gcc, the following must be done where file.c is the source code and filedir is the directory it is in:
