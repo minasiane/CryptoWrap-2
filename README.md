@@ -11,9 +11,7 @@ When assembling the shared files (until the makefile is up and running) with gcc
       
 a) gcc -L/home/username/filedir -Wall -o file file.c -lfile 
 
-export 
-
-LD_LIBRARY_PATH=/home/username/filedir:$LD_LIBRARY_PATH   
+export LD_LIBRARY_PATH=/home/username/filedir:$LD_LIBRARY_PATH   
 
 b) gcc -L/home/username/filedir -Wl,rpath=/home/username/filedir -Wall -o file file.c -lfile
 
