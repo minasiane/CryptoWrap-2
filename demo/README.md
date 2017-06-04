@@ -8,3 +8,7 @@ line within the correct directory (if no PATH or shortcuts made).  Once the serv
 line), either access with 127.0.0.1:8000 or localhost:8000 in a browser.  This incarnation will only run once and output.
 
 Note: thought this would be super simple and it actually took me about two days to get this working... lol.
+
+2nd incarnation = two separate scripts for encrypt and decrypt web demo with almost no flash
+
+Got Decrypt done about an hour.  For simplicity I kept the enc and dec separate.  I made the serverEnc.js be the encrypt and the serverDec.js be the decrypt.  I changed up some values on the decrypt and enctypted the text and put a button on the screen, after a guess attempted, can push the button to decrypt the text.
