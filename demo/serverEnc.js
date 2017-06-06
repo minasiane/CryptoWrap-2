@@ -16,9 +16,12 @@ function handler(req, res){
             <html lang="en"> \
             <head> \
                 <meta charset="UTF-8">  \
-                <title>Form Calculator Add Example</title> \
+                <title>Encrypt DEMO</title> \
             </head> \
             <body> \
+              <p> \
+                The following form will make one encyption of two inputs. \
+              </p> \
               <form name="myForm" action="" onsubmit="return ajax();"method="post">\
                   <input type="text" name="A"> + \
                   <input type="text" name="B"> = \

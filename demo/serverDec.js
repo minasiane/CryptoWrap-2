@@ -10,7 +10,7 @@ function handler(req, res){
 
   var form = '';
 
-  var gibrish = encrypt("Class_of_2017");
+  var gibrish = encrypt("SOU_Computer_Science_Department_Class_of_2017");
 
   if(req.method == "GET"){ 
     
@@ -18,9 +18,12 @@ function handler(req, res){
             <html lang="en"> \
             <head> \
                 <meta charset="UTF-8">  \
-                <title>Decrypt the following Phrase (hint: we are part of it)</title> \
+                <title>DECRYPT DEMO</title> \
             </head> \
             <body> \
+              <p> \
+                  Decrypt the following Phrase (hint: we are part of it) \
+              </p> \
               <form name="myForm" action="" onsubmit="return ajax();"method="post">\
                   <p id="bold"> ' + gibrish.content + ' </p> \
                   <span id="result"></span> \
