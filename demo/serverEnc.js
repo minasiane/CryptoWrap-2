@@ -1,17 +1,14 @@
 // Load the http module to create an http server.
 var http = require('http'); 
-
+var fs = require('fs');
 var crypto = require('crypto'),
     algorithm = 'aes-256-gcm',
     password = '3zTvzr3p67VC61jmV54rIYu1545x4TlY', 
     iv = '60iP0h6vJoEa';
 // Create a function to handle every HTTP request
 function handler(req, res){
-
   var form = '';
-
-  if(req.method == "GET"){ 
-    
+  if(req.method == "GET"){   
     form = '<!doctype html> \
             <html lang="en"> \
             <head> \
@@ -48,12 +45,10 @@ function handler(req, res){
               </script> \
             </body> \
             </html>';
-
   //respond
   res.setHeader('Content-Type', 'text/html');
   res.writeHead(200);
-  res.end(form);
-  
+  res.end(form); 
   } else if(req.method == 'POST'){
 
     //read form data
@@ -61,30 +56,23 @@ function handler(req, res){
 
       //grab form data as string
       var formdata = chunk.toString();
-
       //grab A and B values
       var a = formdata.split("&")[0];
       var b = formdata.split("&")[1];
       var c = a + b;
-
       var result = encrypt(c);
-
       //fill in the result and form values
       form = result.content;
-
       //respond
       res.setHeader('Content-Type', 'text/html');
       res.writeHead(200);
-      res.end(form);
-
+      res.end(form)
     });
-
   } else {
     res.writeHead(200);
     res.end();
   };
-
-};
+}
 
 //js functions running only in Node.JS
 
@@ -99,9 +87,10 @@ function encrypt(text) {
     };
   }
 
-  
+
 // Create a server that invokes the `handler` function upon receiving a request
 http.createServer(handler).listen(8000, function(err){
+
   if(err){
     console.log('Error starting http server');
   } else {
