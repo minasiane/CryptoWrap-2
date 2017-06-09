@@ -1,25 +1,25 @@
 
 
 var http = require('http');
-// var fs = require("fs");
+ var fs = require("fs");
 var crypto = require('crypto'),
 		algorithm = 'aes-256-gcm',
 		password = '3zTvzr3p67VC61jmV54rIYu1545x4TlY', 
 		iv = '60iP0h6vJoEa';
  
-//http.createServer(
+//;http.createServer(
 
 function handler(request, response) {
 
 	
 
-	//if (/^\/[a-zA-Z0-9\/]*.css$/.test(request.url.toString())){
-   	//	sendFileContent(response, request.url.toString().substring(1), "text/css");
-	//} else  {
-	//	sendFileContent(response, request.url.toString().substring(1), "text/html");
-	//}
+	if (/^\/[a-zA-Z0-9\/]*.css$/.test(request.url.toString())){
+   		sendFileContent(response, request.url.toString().substring(1), "text/css");
+	} else  {
+		sendFileContent(response, request.url.toString().substring(1), "text/html");
+	}
 
-	//function sendFileContent(response, fileName, contentType){
+	function sendFileContent(response, fileName, contentType){
 		var form = '';
   		//fs.readFile(fileName, function(err, data){
     		//if(err){
@@ -32,7 +32,7 @@ function handler(request, response) {
       			//response.write(data);
 
 						if(request.method == "GET") {
-							form='<!doctype html> \
+							form = '<!doctype html> \
 									<html lang="en"> \
 									<head> \
 										<meta charset"UTF-8"> \
@@ -62,7 +62,7 @@ function handler(request, response) {
 											} \
 										</script> \
 									</body> \
-								</html>';
+								//</html>';
 							// respond
 							response.setHeader('Content-Type', 'text/html');
 							response.writeHead(200);
@@ -75,16 +75,16 @@ function handler(request, response) {
 								//grab form data as string
 								var formdata = chunk.toString();
 
-								//console.log(formdata);
+								console.log(formdata);
 
 								//grab data value
 								var encIn = eval(formdata.split("&")[0]);
 
 								var result = encrypt(encIn);
-								// commented out = used for testing
-								// console.log(chunk.toString());
-								// console.log(encIn);
-								// console.log(result.content);
+								 commented out = used for testing
+								 console.log(chunk.toString());
+								 console.log(encIn);
+								 console.log(result.content);
 
 								// fill in result and form values
 								form = result.toString();
@@ -127,3 +127,4 @@ http.createServer(handler).listen(3000. function(err){
 		console.log("Server running at http://127.0.0.1:3000/ or http://localhost:3000/");
 	};
 });
+}

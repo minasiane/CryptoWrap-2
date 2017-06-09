@@ -3,8 +3,23 @@ var http = require('http');
 var fs = require('fs');
 var crypto = require('crypto'),
     algorithm = 'aes-256-gcm',
-    password = '3zTvzr3p67VC61jmV54rIYu1545x4TlY', 
-    iv = '60iP0h6vJoEa';
+    password = '3zTvzr3p67VC61jmV54rIYu1545x4TlY',
+    //rando = Date.now().valueOf();
+    //rString = (rando.valueOf()).toString();
+    // seed = iv + rando;
+    iv = '60iP0h6vJoEa'; // + rando.toString();
+
+// Create a server that invokes the `handler` function upon receiving a request
+http.createServer(handler).listen(8000, function(err){
+
+  if(err){
+    console.log('Error starting http server');
+  } else {
+    console.log("Server running at http://127.0.0.1:8000/ or http://localhost:8000/");
+  };
+});
+
+
 // Create a function to handle every HTTP request
 function handler(req, res){
   var form = '';
@@ -88,12 +103,4 @@ function encrypt(text) {
   }
 
 
-// Create a server that invokes the `handler` function upon receiving a request
-http.createServer(handler).listen(8000, function(err){
 
-  if(err){
-    console.log('Error starting http server');
-  } else {
-    console.log("Server running at http://127.0.0.1:8000/ or http://localhost:8000/");
-  };
-});
