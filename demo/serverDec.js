@@ -1,19 +1,24 @@
 // Load the http module to create an http server.
 var http = require('http'); 
-
 var crypto = require('crypto'),
     algorithm = 'aes-256-gcm',
     password = '3zTvzr6n03OX02pxE54rIYu1545x4TlY', 
     iv = '91qX8z9qBoBp';
+
+// Create a server that invokes the `handler` function upon receiving a request
+http.createServer(handler).listen(8000, function(err){
+  if(err){
+    console.log('Error starting http server');
+  } else {
+    console.log("Server running at http://127.0.0.1:8000/ or http://localhost:8000/");
+  };
+});
+
 // Create a function to handle every HTTP request
 function handler(req, res){
-
   var form = '';
-
   var gibrish = encrypt("SOU_Computer_Science_Department_Class_of_2017");
-
-  if(req.method == "GET"){ 
-    
+  if(req.method == "GET"){  
     form = '<!doctype html> \
             <html lang="en"> \
             <head> \
@@ -58,47 +63,44 @@ function handler(req, res){
               </script> \
             </body> \
             </html>';
-
-  //respond
-  res.setHeader('Content-Type', 'text/html');
-  res.writeHead(200);
-  res.end(form);
-  
-  } else if(req.method == 'POST'){
-
-    //read form data
-    req.on('data', function(chunk) {
-
-      //grab form data as string
-      var formdata = chunk.toString();
-
-      //grab A and B values
-      var a = formdata.split("&")[0];
-      var b = formdata.split("&")[1];
-      var c = a + b;
-
-      var result = decrypt(gibrish);
-
-      //fill in the result and form values
-      form = result;
-
       //respond
       res.setHeader('Content-Type', 'text/html');
       res.writeHead(200);
       res.end(form);
-
+  } else if(req.method == 'POST') {
+    //read form data
+    req.on('data', function(chunk) {
+      //grab form data as string
+      var formdata = chunk.toString();
+      //grab A and B values
+      var a = formdata.split("&")[0];
+      var b = formdata.split("&")[1];
+      var c = a + b;
+      var result = decrypt(gibrish);
+      //fill in the result and form values
+      form = result;
+      //respond
+      res.setHeader('Content-Type', 'text/html');
+      res.writeHead(200);
+      res.end(form);
     });
-
   } else {
     res.writeHead(200);
     res.end();
   };
-
 };
-
 //js functions running only in Node.JS
 
-
+  function encrypt(text) {
+      var cipher = crypto.createCipheriv(algorithm,password,iv)
+      var encrypted = cipher.update(text,'utf8','hex')
+      encrypted += cipher.final('hex');
+      var tag = cipher.getAuthTag();
+      return {
+        content: encrypted,
+        tag: tag
+      };
+    }
 
   function decrypt(encrypted) {
     var decipher = crypto.createDecipheriv(algorithm,password,iv)
@@ -106,25 +108,4 @@ function handler(req, res){
     var dd = decipher.update(encrypted.content, 'hex', 'utf8')
     dd += decipher.final('utf8');
     return dd;
-  }
-
-  
-// Create a server that invokes the `handler` function upon receiving a request
-http.createServer(handler).listen(8000, function(err){
-  if(err){
-    console.log('Error starting http server');
-  } else {
-    console.log("Server running at http://127.0.0.1:8000/ or http://localhost:8000/");
-  };
-});
-
-function encrypt(text) {
-    var cipher = crypto.createCipheriv(algorithm,password,iv)
-    var encrypted = cipher.update(text,'utf8','hex')
-    encrypted += cipher.final('hex');
-    var tag = cipher.getAuthTag();
-    return {
-      content: encrypted,
-      tag: tag
-    };
   }

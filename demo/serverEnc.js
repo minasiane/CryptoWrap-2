@@ -19,7 +19,6 @@ http.createServer(handler).listen(8000, function(err){
   };
 });
 
-
 // Create a function to handle every HTTP request
 function handler(req, res){
   var form = '';
@@ -79,15 +78,12 @@ function handler(req, res){
             </body> \
             </html>';
   //respond
-
   res.setHeader('Content-Type', 'text/html');
   res.writeHead(200);
   res.end(form); 
-  } else if(req.method == 'POST'){
-
+  } else if(req.method == 'POST') {
     //read form data
     req.on('data', function(chunk) {
-
       //grab form data as string
       var formdata = chunk.toString();
       //grab A and B values
@@ -100,8 +96,7 @@ function handler(req, res){
       //respond
       res.setHeader('Content-Type', 'text/html');
       res.writeHead(200);
-      res.end(form)
-      
+      res.end(form)   
     });
   } else {
     res.writeHead(200);
@@ -121,6 +116,3 @@ function encrypt(text) {
       tag: tag
     };
   }
-
-
-
