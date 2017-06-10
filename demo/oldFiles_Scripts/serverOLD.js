@@ -41,7 +41,7 @@ function handler(request, response) {
 									<body> \
 										<form name"encForm" action"" onsubmit="return ajax();" method="post">\
 											<input type="text" name="EncIn"> \
-											<span id="result"></span> \
+											<span id="result"><br><br></span> \
 											<br> \
 											<input type="submit" value="Submit"> \
 										</form> \

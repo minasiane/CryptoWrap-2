@@ -19,6 +19,13 @@ function handler(req, res){
             <head> \
                 <meta charset="UTF-8">  \
                 <title>DECRYPT DEMO</title> \
+                <style> \
+                    * {background-color: cyan; \
+                       color: blue; \
+                       font-family: \"Lucida Console\", Courier, monospace; \
+                       font-size: 1.15em;} \
+                    #result{font-size: 120%;} \
+                </style> \
             </head> \
             <body> \
               <p> \
@@ -26,9 +33,11 @@ function handler(req, res){
               </p> \
               <form name="myForm" action="" onsubmit="return ajax();"method="post">\
                   <p id="bold"> ' + gibrish.content + ' </p> \
-                  <span id="result"></span> \
+                  <p> <span id="result"></span> </p> \
                   <br> \
+                  <p> \
                   <input type="submit" value="Submit"> \
+                  </p> \
               </form> \
               <script> \
                 function ajax(){ \

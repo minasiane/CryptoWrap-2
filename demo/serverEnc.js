@@ -31,7 +31,10 @@ function handler(req, res){
                 <title>Encrypt DEMO</title> \
                 <style> \
                     * {background-color: cyan; \
-                       color: white} \
+                       color: blue; \
+                       font-family: \"Lucida Console\", Courier, monospace; \
+                       font-size: 1.15em;} \
+                    #result{font-size: 90%;} \
                 </style> \
             </head> \
             <body> \
@@ -39,13 +42,22 @@ function handler(req, res){
               <p> \
                 The following form will make one encyption of two inputs. \
               </p> \
+              <p> \
+              <br> \
               <form name="myForm" action="" onsubmit="return ajax();" method="post">\
+                  <p> \
                   <input type="text" name="A"> + \
                   <input type="text" name="B"> = \
-                  <span id="result"></span> \
+                  </p> \
+                  <p> \
+                  <span id="result"><br><br></span> \
                   <br> \
+                  </p> \
+                  <p> \
                   <input type="submit" value="Submit"> \
+                  </p> \
               </form> \
+              </p> \
               <script> \
                 function ajax(){ \
                   var a = document.forms["myForm"]["A"]; \
@@ -84,7 +96,7 @@ function handler(req, res){
       var c = a + b;
       var result = encrypt(c);
       //fill in the result and form values
-      form = result.content;
+      form = "\n" + result.content + "\n";
       //respond
       res.setHeader('Content-Type', 'text/html');
       res.writeHead(200);
