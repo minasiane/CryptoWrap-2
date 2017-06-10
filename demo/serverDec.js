@@ -89,16 +89,7 @@ function handler(req, res){
 
 //js functions running only in Node.JS
 
-function encrypt(text) {
-    var cipher = crypto.createCipheriv(algorithm,password,iv)
-    var encrypted = cipher.update(text,'utf8','hex')
-    encrypted += cipher.final('hex');
-    var tag = cipher.getAuthTag();
-    return {
-      content: encrypted,
-      tag: tag
-    };
-  }
+
 
   function decrypt(encrypted) {
     var decipher = crypto.createDecipheriv(algorithm,password,iv)
@@ -117,3 +108,14 @@ http.createServer(handler).listen(8000, function(err){
     console.log("Server running at http://127.0.0.1:8000/ or http://localhost:8000/");
   };
 });
+
+function encrypt(text) {
+    var cipher = crypto.createCipheriv(algorithm,password,iv)
+    var encrypted = cipher.update(text,'utf8','hex')
+    encrypted += cipher.final('hex');
+    var tag = cipher.getAuthTag();
+    return {
+      content: encrypted,
+      tag: tag
+    };
+  }

@@ -1,5 +1,5 @@
 // Load the http module to create an http server.
-var http = require('http'); 
+var http = require('http');
 var fs = require('fs');
 var crypto = require('crypto'),
     algorithm = 'aes-256-gcm',
@@ -29,12 +29,17 @@ function handler(req, res){
             <head> \
                 <meta charset="UTF-8">  \
                 <title>Encrypt DEMO</title> \
+                <style> \
+                    * {background-color: cyan; \
+                       color: white} \
+                </style> \
             </head> \
             <body> \
+            <span id = "pallette"> \
               <p> \
                 The following form will make one encyption of two inputs. \
               </p> \
-              <form name="myForm" action="" onsubmit="return ajax();"method="post">\
+              <form name="myForm" action="" onsubmit="return ajax();" method="post">\
                   <input type="text" name="A"> + \
                   <input type="text" name="B"> = \
                   <span id="result"></span> \
@@ -58,9 +63,11 @@ function handler(req, res){
                   return false; \
                 } \
               </script> \
+              </span> \
             </body> \
             </html>';
   //respond
+
   res.setHeader('Content-Type', 'text/html');
   res.writeHead(200);
   res.end(form); 
@@ -82,6 +89,7 @@ function handler(req, res){
       res.setHeader('Content-Type', 'text/html');
       res.writeHead(200);
       res.end(form)
+      
     });
   } else {
     res.writeHead(200);
