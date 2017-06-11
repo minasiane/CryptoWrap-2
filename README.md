@@ -2,6 +2,10 @@
 
 This project is to create a wrapper to utilize S4 library in JavaScript and Python.
 
+For the Node.js the binding.gyp and json.package files are in the outside of the cryptowrap folder.  This will encorporate the ecc
+sub portion of the tomcrypt source files for that were used for testing.
+
+The Python test files are only in the slfTst folder as the c-types Python library was only able to get a install with no run-time errors, but still contained unsolved logic/conversion errors going up the pipe from the c-code to python.
 
 When assembling the shared files (until the makefile is up and running) with gcc, the following must be done where file.c is the source code and filedir is the directory it is in:
 
