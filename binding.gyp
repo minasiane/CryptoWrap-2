@@ -1,0 +1,45 @@
+{
+   "targets": [
+      {
+         "target_name": "CryptoWrap",
+         "sources": [
+            "miniS4/ecc.c",
+            "miniS4/ecc_ansi_x963_export.c",
+            "miniS4/ecc_ansi_x963_import.c",
+            "miniS4/ecc_decrypt_key.c",
+            "miniS4/ecc_encrypt_key.c",
+            "miniS4/ecc_free.c",
+            "miniS4/ecc_get_size.c",
+            "miniS4/ecc_import.c",
+            "miniS4/ecc_make_key.c",
+            "miniS4/ecc_shared_secret.c",
+            "miniS4/ecc_sign_hash.c",
+            "miniS4/ecc_sizes.c",
+            "miniS4/ecc_test.c",
+            "miniS4/ecc_verify_hash.c",
+            "miniS4/ltc_ecc_is_valid_itx.c",
+            "miniS4/ltc_ecc_map.c",
+            "miniS4/ltc_ecc_mul2add.c",
+            "miniS4/ltc_ecc_mulmod.c",
+            "miniS4/ltc_ecc_mulmod_timing.c",
+            "miniS4/ltc_ecc_points.c",
+            "miniS4/ltc_ecc_projective_add_point.c",
+            "miniS4/ltc_ecc_projective_dbl_point.c",
+            "miniS4/test.c",
+            "miniS4/tomcrypt.h",
+            "miniS4/tomcrypt_argchk.h",
+            "miniS4/tomcrypt_cfg.h",
+            "miniS4/tomcrypt_cipher.h",
+            "miniS4/tomcrypt_custom.h",
+            "miniS4/tomcrypt_hash.h",
+            "miniS4/tomcrypt_mac.h",
+            "miniS4/tomcrypt_macros.h",
+            "miniS4/tomcrypt_math.h",
+            "miniS4/tomcrypt_misc.h",
+            "miniS4/tomcrypt_pk.h",
+            "miniS4/tomcrypt_pkcs.h",
+            "miniS4/tomcrypt_prn.h"
+         ]
+      }
+   ]
+}
